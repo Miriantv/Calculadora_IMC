@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             val pesoStr: String = edtPeso.text.toString()
             val alturaStr: String = edtAltura.text.toString()
 
-            if (pesoStr == "" && alturaStr == "") {
+            if (pesoStr == "" || alturaStr == "") {
 
                 Snackbar.make(
                     edtPeso,
@@ -37,7 +37,11 @@ class MainActivity : AppCompatActivity() {
                 val alturaQ2 = altura * altura
                 val resultado = peso / alturaQ2
 
-                println("Mirian acao do botao" + resultado)
+                val intent = Intent(this, ResultActivity::class.java)
+                intent.putExtra(KEY_RESULT_IMC, resultado)
+                startActivity(intent)
+
+
             }
         }
     }
